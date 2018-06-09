@@ -8,14 +8,13 @@ main()
     upper=300;
     step=20;
 
-    celsius=lower;
-    printf("Celsius to Fahrenheit\n\n");
-    printf("%3s %7s\n", "cel", "fahr");
+    fahr=lower;
+    printf("Fahrenheit to Celsius\n\n");
+    printf("%3s %7s\n", "fahr", "cel");
     while(fahr<=upper)
     {
-        //celsius=(5.0/9.0)*(fahr-32.0);
-        fahr=(celsius/5*9)+32;
-        printf("%3.0f %6.0f\n", celsius, fahr);
-        celsius=celsius+step;
+        celsius=(5.0/9.0)*(fahr-32.0);
+        printf("%3.0f %6.1f\n", fahr, celsius);
+        fahr=fahr+step;
     }
 }
