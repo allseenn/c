@@ -36,3 +36,10 @@
 /  \__/  \
 \__/  \__/
 ```
+
+## Решения
+
+- [Задача 1](https://github.com/allseenn/c/blob/master/01.Tasks/task01.c)
+- [Задача 2](https://github.com/allseenn/c/blob/master/01.Tasks/task02.c)
+- [Задача 3](https://github.com/allseenn/c/blob/master/01.Tasks/task03.c)
+- [Задача 4](https://github.com/allseenn/c/blob/master/01.Tasks/task04.c)
