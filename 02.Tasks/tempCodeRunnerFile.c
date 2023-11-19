@@ -1,5 +1,3 @@
-// На вход подается произвольное четырехзначное число 
-// Нужно напечатать среднее арифметическое цифр
 #include <stdio.h>
 #include <math.h>
 // Для числа любой длинны!
@@ -13,7 +11,6 @@ int main() {
         input /= 10;
     }
     sum += input;
-    if (input > 0) count++;
 
     printf("%.2f\n", sum / (float)count);
     return 0;
