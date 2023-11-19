@@ -7,6 +7,6 @@ int main()
     printf("Enter 2 digits: ");
     scanf("%d%d", &a, &b);
     diff = (a - b);
-    printf("%d-%d=%d\n", a, b, diff);
+    printf("%d\n", diff);
     return 0;
 }
