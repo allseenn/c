@@ -191,3 +191,7 @@
 
 ## Решение
 
+- [Задача 1](https://github.com/allseenn/c/blob/master/02.Tasks/01.c)
+- [Задача 2](https://github.com/allseenn/c/blob/master/02.Tasks/02.c)
+- [Задача 3](https://github.com/allseenn/c/blob/master/02.Tasks/03.c)
+- [Задача 4](https://github.com/allseenn/c/blob/master/02.Tasks/04.c)

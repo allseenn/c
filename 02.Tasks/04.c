@@ -2,7 +2,7 @@
 // Нужно напечатать среднее арифметическое цифр
 #include <stdio.h>
 #include <math.h>
-// Для числа любой длинны!
+// Для числа любой длинны в пределах maxint!
 int main() {
     int input, count = 0, sum = 0;
     printf("Enter a number : ");
@@ -14,7 +14,6 @@ int main() {
     }
     sum += input;
     if (input > 0) count++;
-
     printf("%.2f\n", sum / (float)count);
     return 0;
 }
