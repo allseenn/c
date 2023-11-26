@@ -10,11 +10,11 @@ int main(int argc, char const *argv[])
     {
         printf("spring\n");
     }
-        else if (a > 5 && a < 9)
+    else if (a > 5 && a < 9)
     {
         printf("summer\n");
     }
-        else if (a > 8 && a < 12)
+    else if (a > 8 && a < 12)
     {
         printf("autumn\n");
     }
