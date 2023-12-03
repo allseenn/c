@@ -2,11 +2,11 @@
 
 int main(int argc, char const *argv[])
 {
+    // START:
     int a;
-    START:
-    printf("Enter a number greater than 10: ");
+    printf("Enter a number greter than 10: ");
     scanf("%d", &a);
-    if(a <= 10) goto START;
+    // if(a <= 10) goto START;
     for (int i = 11; i <= a; i++)
     {
         int sum = 0;
@@ -21,6 +21,5 @@ int main(int argc, char const *argv[])
         if (sum == mult)
             printf("%d ", i);
     }
-    printf("\n");
     return 0;
 }
