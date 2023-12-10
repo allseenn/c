@@ -73,3 +73,11 @@ https://younglinux.info/algorithm/euclidean int nod(int a, int b)
 Пример No2
 - Данные на входе: ()(.
 - Данные на выходе: NO
+
+## Решения
+
+- [Задача 1](https://github.com/allseenn/c/blob/master/05.Tasks/01.c)
+- [Задача 2](https://github.com/allseenn/c/blob/master/05.Tasks/02.c)
+- [Задача 3](https://github.com/allseenn/c/blob/master/05.Tasks/03.c)
+- [Задача 4](https://github.com/allseenn/c/blob/master/05.Tasks/04.c)
+- [Задача 5](https://github.com/allseenn/c/blob/master/05.Tasks/05.c)
