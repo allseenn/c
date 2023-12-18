@@ -101,3 +101,12 @@
 Пример No2
 - Данные на входе: 3 4
 - Данные на выходе: 81
+
+# Решение
+
+- [Задача 1](https://github.com/allseenn/c/blob/master/06.Tasks/01.c)
+- [Задача 2](https://github.com/allseenn/c/blob/master/06.Tasks/02.c)
+- [Задача 3](https://github.com/allseenn/c/blob/master/06.Tasks/03.c)
+- [Задача 4](https://github.com/allseenn/c/blob/master/06.Tasks/04.c)
+- [Задача 5](https://github.com/allseenn/c/blob/master/06.Tasks/05.c)
+- [Задача 6](https://github.com/allseenn/c/blob/master/06.Tasks/06.c)
