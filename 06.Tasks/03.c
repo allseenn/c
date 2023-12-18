@@ -1,10 +1,10 @@
 #include<stdio.h>
 
 int bin_count(int n){
-    static int count = 0;
+    int count = 0;
     if(n == 0) return count;
     if(n%2 != 0) count++;
-    return bin_count(n/= 2);
+    return count + bin_count(n/= 2);
 }
 
 int main()
