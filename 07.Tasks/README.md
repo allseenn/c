@@ -114,3 +114,17 @@
 
 Пример No2
 - Данные на входе: 19
+
+## Решение
+
+- [Задача 1](https://github.com/allseenn/c/blob/master/07.Tasks/01.c)
+- [Задача 2](https://github.com/allseenn/c/blob/master/07.Tasks/02.c)
+- [Задача 3](https://github.com/allseenn/c/blob/master/07.Tasks/03.c)
+- [Задача 4](https://github.com/allseenn/c/blob/master/07.Tasks/04.c)
+- [Задача 5](https://github.com/allseenn/c/blob/master/07.Tasks/05.c)
+- [Задача 6](https://github.com/allseenn/c/blob/master/07.Tasks/06.c)
+
+#### Допзадания из семинара
+
+- [Цифры по порядку](https://github.com/allseenn/c/blob/master/07.Tasks/01.c)
+- [Переставить цифры](https://github.com/allseenn/c/blob/master/07.Tasks/01.c)
