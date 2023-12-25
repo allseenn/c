@@ -126,5 +126,5 @@
 
 #### Допзадания из семинара
 
-- [Цифры по порядку](https://github.com/allseenn/c/blob/master/07.Tasks/01.c)
-- [Переставить цифры](https://github.com/allseenn/c/blob/master/07.Tasks/01.c)
+- [Цифры по порядку](https://github.com/allseenn/c/blob/master/07.Tasks/order.c)
+- [Переставить цифры](https://github.com/allseenn/c/blob/master/07.Tasks/sort.c)
