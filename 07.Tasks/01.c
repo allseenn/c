@@ -26,7 +26,7 @@ int main()
     int arr[SIZE] = {NULL};
     printf("Enter %d numbers with spaces: ", SIZE);
     scan_arr(arr, SIZE);
-    printf("%d", mean_arr(arr, 5));
+    printf("%.3f", (float)mean_arr(arr, 5));
     printf("\n");
     return 0;
 }
