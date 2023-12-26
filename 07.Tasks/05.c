@@ -20,6 +20,7 @@ void sort_arr(int arr[], int size)
             printf("%d ", arr[i]);
         }
     }
+    printf("\n");
 }
 
 int main()
