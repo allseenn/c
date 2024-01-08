@@ -43,10 +43,126 @@ while(s[i]) // s[i] != 0
 return 0;
 ```
 
-#### Множество сканирования scanf
+#### Множество сканирования scanf (шаблоны)
 
 scanf() можно задавать шаблоны  (подобие регулярноых выражений) считывания
 
 ```
+char s[100];
+scanf("%[a-z]", s); // helloWORLD (считать только буквы) 
+printf("%s\n", s); // hello
 
+while (getchar() != '\n'); // очистка буфера ввода
+scanf("%[0-9]", s); // 123WORLD (считать цифры) 
+printf("%s\n",s); // 123
+
+while (getchar() != '\n');
+scanf("%[^\n]", s); // Hello world (все кроме \n)
+printf("%s\n",s); // Hello world
+
+while (getchar() != '\n');
+char s1[100], s2[100];
+scanf("%s%s",s1,s2); // Hello world
+printf("s1 = %s s2 = %s\n",s1,s2); // s1 = Hello s2 = world
+
+while (getchar() != '\n'); 
+scanf("%[0-9]=%[a-z]", s1, s2); // 123 = hello (= символ разделителя между спецификаторами)
+printf("s1 = %s s2 = %s\n", s1, s2); // s1 = 123 s2 = hello
+```
+
+while (getchar() != '\n') - данная инструкция нужна для очистки буфера ввода перед новым вызовом scanf() с шаблонами, т.к.в шаблонах отсекаются управляющие символы типа \n, и scanf() не знает, что ввод закончен и продолжает принимать символы далее, либо до завершения программы либо до scanf() без шаблона. Запрос на ввод будет одним, а выводов в консоль сразу будет несколько, причем все одинаковые, т.к. буфер содержит один и тот же массив данных, выводов же будет несколько и все они будут одинаковыми.
+
+##### Возврат scanf()
+
+**scanf()** возвращает количество успешно распознанных спецификаторов или -1 в случае ошибки, либо получив символ перехода на новую строку.
+
+```
+char s1[100], s2[100];
+int r;
+r=scanf("%[0-9]=%[a-z]",s1,s2); // 123=hello
+printf("r = %d\n",r);           // r = 2
+
+while (getchar() != '\n'); 
+r=scanf("%[0-9]=%[a-z]",s1,s2); // 123=123
+printf("r = %d\n",r);           // r = 1
+
+while (getchar() != '\n'); 
+r=scanf("%[0-9]=%[a-z]",s1,s2); // hello=123
+printf("r = %d\n",r);           // r = 0
+
+while (getchar() != '\n'); 
+r=scanf("%[0-9]=%[a-z]",s1,s2); // \EOF
+printf("r = %d\n",r);           // r = -1
+```
+
+### Библиотека string.h
+
+#### strlen()
+
+strlen(const char *cs) - возвращает длину строки
+
+```
+char st[10] = "hello";
+printf("Sizeof = %lu\n", sizeof(st)); // Sizeof = 10
+printf("Strlen = %lu\n", strlen(st)); // strlen = 6
+```
+
+Нельзя использовать операции ==, !=, etc, т.к. происходит сравнение указателей на начало строк.
+
+```
+    char st1[10] = "hello";
+    char st2[10] = "hello";
+    if(st1 == st2)
+        printf("Yes\n");
+    else
+        printf("No\n"); // No
+```
+
+Своя реализация strlen()
+
+```
+unsigned long strlen(const char *cs) {
+    int count = 0;
+    while(*cs++) count++;
+    return count;
+}
+```
+
+Своя реализация strcpy()
+
+```
+char* strcpy(char *dst, const char *src)
+{
+    for (int i = 0; i < sizeof(src); i++)
+        dst[i] = src[i];
+    return dst;
+}
+```
+
+Своя реализация strcmp()
+
+```
+int strcmp(const char *cs, const char *ct)
+{
+    return strlen(cs) - strlen(ct);
+}
+```
+
+Своя реализация wordcnt() - подсчет слов
+
+```
+unsigned long wordcnt(const char *cs) {
+    int count = 0;
+    short word = 0;
+    while(*cs) 
+    {
+        if(*cs++ != ' ' && word == 0)
+        {
+            count++;
+            word = 1;
+        }
+        else word = 0;
+    }
+    return count;
+}
 ```

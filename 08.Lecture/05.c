@@ -1,21 +1,22 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main() {
-    char s[100];
+int main(int argc, char const *argv[])
+{
+    char s1[100], s2[100];
+    int r;
+    r=scanf("%[0-9]=%[a-z]",s1,s2); // 123=hello
+    printf("r = %d\n",r);           // r = 2
 
-    // Считываем строку, включая пробелы и символ новой строки
-    printf("Enter lowercase letters: ");
-    scanf(" %[a-z]", s);
-    printf("%s\n", s);
+    while (getchar() != '\n'); 
+    r=scanf("%[0-9]=%[a-z]",s1,s2); // 123=123
+    printf("r = %d\n",r);           // r = 1
+    
+    while (getchar() != '\n'); 
+    r=scanf("%[0-9]=%[a-z]",s1,s2); // hello=123
+    printf("r = %d\n",r);           // r = 0
 
-    // Очищаем входной буфер перед следующим вводом
-    while (getchar() != '\n');
-
-    // Считываем строку с цифрами
-    printf("Enter digits: ");
-    scanf("%[0-9]", s);
-    printf("%s\n", s);
-
+    while (getchar() != '\n'); 
+    r=scanf("%[0-9]=%[a-z]",s1,s2); // \EOF
+    printf("r = %d\n",r);           // r = -1
     return 0;
 }
-
