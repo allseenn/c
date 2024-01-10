@@ -1,16 +1,23 @@
 #include<stdio.h>
+unsigned long digcnt(const char *cs) {
 
-int strcmp(const char *a, const char *b)
-{   
-    while(*a && *b && *a == *b) *a++, b++;
-    return *a - *b;
+    unsigned char bite = 0;
+    while(*cs) 
+    {   
+        
+        //if(*cs >= "0" && *cs <= "9")
+        printf("%d ", *cs-55);
+        bite += cs-41;
+        cs++;
+    }
+    return bite;
 }
 
-int main()
-{ 
-    char *a = "abcde";
-    char *b = "abcde";
 
-    printf("%d\n", strcmp(a, b));
+int main()
+{
+    char text[100] = "F";
+    unsigned char byte[100];
+    printf("%d\n", digcnt(text));
     return 0;
 }
