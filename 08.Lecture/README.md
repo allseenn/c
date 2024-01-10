@@ -118,7 +118,9 @@ printf("Strlen = %lu\n", strlen(st)); // strlen = 6
         printf("No\n"); // No
 ```
 
-Своя реализация strlen()
+#### Задачи на строки
+
+1. Своя реализация strlen()
 
 ```
 unsigned long strlen(const char *cs) {
@@ -128,7 +130,7 @@ unsigned long strlen(const char *cs) {
 }
 ```
 
-Своя реализация strcpy()
+2. Своя реализация strcpy()
 
 ```
 char* strcpy(char *dst, const char *src)
@@ -139,16 +141,17 @@ char* strcpy(char *dst, const char *src)
 }
 ```
 
-Своя реализация strcmp()
+3. Своя реализация strcmp()
 
 ```
-int strcmp(const char *cs, const char *ct)
-{
-    return strlen(cs) - strlen(ct);
+int strcmp(const char *a, const char *b)
+{   
+    while(*a && *b && *a == *b) *a++, b++;
+    return *a - *b;
 }
 ```
 
-Своя реализация wordcnt() - подсчет слов
+4. Своя реализация wordcnt() - подсчет слов
 
 ```
 unsigned long wordcnt(const char *cs) {
@@ -166,3 +169,20 @@ unsigned long wordcnt(const char *cs) {
     return count;
 }
 ```
+
+5. str_sum_digits(const char *cs) - сумма цифр в строке
+
+```
+unsigned long digcnt(const char *cs) {
+    int summa = 0;
+    while(*cs) 
+    {
+        if(*cs > '0' && *cs <= '9')
+            summa += (*cs - '0');
+        cs++;
+    }
+    return summa;
+}
+```
+
+6. int StrToHex(const char *str,char* Hex) - преобразует str, в шестнадцатеричный формат

@@ -1,9 +1,16 @@
 #include<stdio.h>
-//#define N 7
+
+int strcmp(const char *a, const char *b)
+{   
+    while(*a && *b && *a == *b) *a++, b++;
+    return *a - *b;
+}
 
 int main()
 { 
-    const int N = 7;
-    char st[N] = "";
+    char *a = "abcde";
+    char *b = "abcde";
+
+    printf("%d\n", strcmp(a, b));
     return 0;
 }
