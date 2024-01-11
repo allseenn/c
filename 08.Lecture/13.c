@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
-int StrToHex(const char *str, unsigned char *Hex)
+int StrToHex(char *str, unsigned char *Hex)
 {
     unsigned char byte = 0;
     short int half = 0;
@@ -16,6 +16,11 @@ int StrToHex(const char *str, unsigned char *Hex)
         else if (*str >= 'a' && *str <= 'f')
             byte += (*str - 87);
         else space = 1;
+
+        if (*(str+2) == 0 && space == 1)
+        {
+            *(str+2) = ' ';
+        }
         
         if (half == 0 && space == 0)
         {
@@ -45,8 +50,10 @@ int StrToHex(const char *str, unsigned char *Hex)
             half = 0;
             size++;
         }
-        str++;
         
+
+        
+        str++;
     }
     return size;
 }
@@ -62,7 +69,7 @@ void printHex(uint8_t *Hex, int size)
 
 int main()
 {
-    char text[100] = "12 a f B F";
+    char text[100] = " 1 2afBF";
     unsigned char bytes[500];
     int size = StrToHex(text, bytes);
     printHex(bytes, size);
