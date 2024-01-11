@@ -1,26 +1,28 @@
 #include <stdio.h>
-#include <stdint.h>
-int StrToHex(char *str, unsigned char *Hex)
+int StrToHex(const char *string, unsigned char *Hex)
 {
     unsigned char byte = 0;
     short int half = 0;
     short int space = 0;
-    int index = 0;
+    int index;
     int size = 0;
-    while (*str)
-    {
-        if (*str >= '0' && *str <= '9')
-            byte += (*str - '0');
-        else if (*str >= 'A' && *str <= 'F')
-            byte += (*str - 55);
-        else if (*str >= 'a' && *str <= 'f')
-            byte += (*str - 87);
-        else space = 1;
+    char str[100];
 
-        if (*(str+2) == 0 && space == 1)
-        {
-            *(str+2) = ' ';
-        }
+    for(index = 0; *(string+index); index++)
+        str[index] = *(string+index);
+        
+    str[index] = ' ', str[index+1] = '\0';
+
+    for (index = 0; str[index] != '\0'; index++)
+    {
+
+        if (str[index] >= '0' && str[index] <= '9')
+            byte += (str[index] - '0');
+        else if (str[index] >= 'A' && str[index] <= 'F')
+            byte += (str[index] - 55);
+        else if (str[index] >= 'a' && str[index] <= 'f')
+            byte += (str[index] - 87);
+        else space = 1;
         
         if (half == 0 && space == 0)
         {
@@ -50,15 +52,11 @@ int StrToHex(char *str, unsigned char *Hex)
             half = 0;
             size++;
         }
-        
-
-        
-        str++;
     }
     return size;
 }
 
-void printHex(uint8_t *Hex, int size)
+void printHex(unsigned char *Hex, int size)
 {
     for (int i = 0; i < size; i++)
     {
@@ -69,7 +67,7 @@ void printHex(uint8_t *Hex, int size)
 
 int main()
 {
-    char text[100] = " 1 2afBF";
+    char text[100] = "12 gggggg a f B F";
     unsigned char bytes[500];
     int size = StrToHex(text, bytes);
     printHex(bytes, size);

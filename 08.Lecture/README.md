@@ -186,3 +186,247 @@ unsigned long digcnt(const char *cs) {
 ```
 
 6. int StrToHex(const char *str,char* Hex) - преобразует str, в шестнадцатеричный формат
+
+```
+int StrToHex(const char *string, unsigned char *Hex)
+{
+    unsigned char byte = 0;
+    short int half = 0;
+    short int space = 0;
+    int index;
+    int size = 0;
+    char str[100];
+
+    for(index = 0; *(string+index); index++)
+        str[index] = *(string+index);
+        
+    str[index] = ' ', str[index+1] = '\0';
+
+    for (index = 0; str[index] != '\0'; index++)
+    {
+
+        if (str[index] >= '0' && str[index] <= '9')
+            byte += (str[index] - '0');
+        else if (str[index] >= 'A' && str[index] <= 'F')
+            byte += (str[index] - 55);
+        else if (str[index] >= 'a' && str[index] <= 'f')
+            byte += (str[index] - 87);
+        else space = 1;
+        
+        if (half == 0 && space == 0)
+        {
+            byte *= 16;
+            half++;
+        }
+        else if (half == 1 && space == 0)
+        {
+            *Hex = byte;
+            Hex++;
+            byte = 0;
+            half = 0;
+            size++;
+        }
+        else if (half == 0 && space == 1)
+        {
+            space = 0; 
+ 
+        }
+        else if (half == 1 && space == 1)
+        {
+            space = 0;
+            byte /= 16;
+            *Hex = byte;
+            Hex++;
+            byte = 0;
+            half = 0;
+            size++;
+        }
+    }
+    return size;
+}
+```
+
+### Библиотека string.h
+
+#### 1. Функции работы с памятью
+
+##### memcopy()
+
+Копирует данные из одного массива в другой:
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char source[] = "Hello, World!";
+    char destination[20];
+
+    memcpy(destination, source, strlen(source) + 1);
+
+    printf("Source: %s\n", source);
+    printf("Destination: %s\n", destination);
+
+    return 0;
+}
+```
+
+##### memmove
+
+Копирует n байт из области памяти src в dest, которые в отличие от memcpy могут перекрываться
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[] = "Hello, World!";
+    char buffer[20];
+
+    // Копируем данные из str в buffer с использованием memmove
+    memmove(buffer, str, strlen(str) + 1);
+
+    printf("Source: %s\n", str);
+    printf("Destination: %s\n", buffer);
+
+    return 0;
+}
+```
+
+##### memchr()
+
+Возвращает указатель на первое вхождение значения c среди первых n байтов s или NULL, если не найдено
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    const char str[] = "Hello, World!";
+    char target = 'W';
+
+    // Ищем первое вхождение 'W' в строке str
+    const char *result = memchr(str, target, strlen(str));
+
+    if (result != NULL) {
+        printf("Первое вхождение символа '%c' в строке: %s\n", target, result);
+    } else {
+        printf("Символ '%c' не найден в строке.\n", target);
+    }
+
+    return 0;
+}
+
+```
+
+##### memcmp()
+
+Сравнивает первые n символов в областях памяти
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    const char str1[] = "Hello";
+    const char str2[] = "Hello";
+    const char str3[] = "World";
+
+    // Сравниваем блоки памяти str1 и str2
+    int result1 = memcmp(str1, str2, strlen(str1));
+    if (result1 == 0) {
+        printf("str1 и str2 идентичны.\n");
+    } else {
+        printf("str1 и str2 не идентичны.\n");
+    }
+
+    // Сравниваем блоки памяти str1 и str3
+    int result2 = memcmp(str1, str3, strlen(str1));
+    if (result2 == 0) {
+        printf("str1 и str3 идентичны.\n");
+    } else {
+        printf("str1 и str3 не идентичны.\n");
+    }
+
+    return 0;
+}
+```
+
+Если блоки памяти одинаковы, memcmp возвращает 0; если они различны, возвращается значение, показывающее относительный порядок первых несовпадающих байт.
+
+##### memset 
+
+Заполняет область памяти одним байтом A
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char buffer[10];
+
+    // Заполняем блок памяти buffer значением 'A' на 10 байт
+    memset(buffer, 'A', sizeof(buffer));
+
+    // Выводим результат
+    for (int i = 0; i < sizeof(buffer); i++) {
+        printf("%c ", buffer[i]);
+    }
+
+    return 0;
+}
+```
+
+#### 2. Функции для работы со строками
+
+- *strcpy - копирует строку из одного места в другое
+- *strncpy копирует до n байт строки из одного места в другое
+- strlen возвращает длину строки
+- *strpbrk находит первое вхождение любого символа, перечисленного в accept
+- *strstr находит первое вхождение строки needle в haystack
+- strcat дописывает строку src в конец dest
+- strncat дописывает не более n начальных символов строки src (или всю src, если её длина меньше) в конец dest
+- *strchr возвращает адрес символа c в строке s, начиная с головы, или NULL, если строка s не содержит символ c
+- *strrchr возвращает адрес символа c в строке s, начиная с хвоста, или NULL, если строка s не содержит символ c
+- strcmp лексикографическое сравнение строк (возвращает "0", если строки одинаковые, положительное, если первая строка больше, и отрицательное, если меньше)
+- strncmp лексикографическое сравнение первых n байтов строк
+
+##### Пример строковых функций
+
+```
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+    char destination[30] = "Hello ";
+    char source[30] = "GB!!!";
+    strcat(destination, source);
+    printf("%s\n", destination); // Hello GB!!!
+    strcpy(source, destination);
+    printf("%s\n", source); // Hello GB!!!
+    int n = strlen(source); // количество копируемых символов
+    strncpy(destination, source, n - 1);
+    // функция strncpy НЕ заканчивает скопированную строку нулевым символом,
+    // что может привести к переполнению буфера.
+    // Поэтому после копирования следует вручную устанавливать нулевой символ
+    destination[n - 1] = '\0';
+    printf("%s %d\n", destination, n); // Hello GB!! 11
+    char substring[14] = "GB!";
+    char *substring_ptr = strstr(destination, substring);
+    // если подстрока найдена
+    if (substring_ptr)
+    {
+        // вычисляем позицию подстроки в строке
+        long position = substring_ptr - destination;
+        printf("Substring index: %ld\n", position); // Substring index: 6
+    }
+    else
+    // если подстрока не найдена
+    {
+        printf("Substring not found\n");
+    }
+    return 0;
+}
+```
+
+### Заголовочный файл stdlib.h

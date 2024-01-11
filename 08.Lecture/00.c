@@ -1,23 +1,22 @@
-#include<stdio.h>
-unsigned long digcnt(const char *cs) {
+#include <stdio.h>
 
-    unsigned char bite = 0;
-    while(*cs) 
-    {   
-        
-        //if(*cs >= "0" && *cs <= "9")
-        printf("%d ", *cs-55);
-        bite += cs-41;
-        cs++;
+void addSpaceToEnd(char *text) {
+    // Находим конец строки
+    while (*text != '\0') {
+        text++;
     }
-    return bite;
+
+    // Добавляем пробел в конец строки
+    *text = '?';
+    *(text + 1) = '\0';
 }
 
+int main() {
+    char text[100] = "Привет, мир!"; // Исходная строка
 
-int main()
-{
-    char text[100] = "F";
-    unsigned char byte[100];
-    printf("%d\n", digcnt(text));
+    addSpaceToEnd(text); // Добавление пробела в конец строки
+
+    printf("Итоговая строка: %s\n", text);
+
     return 0;
 }
