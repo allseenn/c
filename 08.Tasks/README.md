@@ -108,3 +108,13 @@ void change_max_min(int size, int a[])
 Пример №2
 - Данные на входе: G8
 - Данные на выходе: WHITE
+
+# Решение
+
+- [Задача 1](https://github.com/allseenn/c/blob/master/08.Tasks/01.c)
+- [Задача 2](https://github.com/allseenn/c/blob/master/08.Tasks/02.c)
+- [Задача 3](https://github.com/allseenn/c/blob/master/08.Tasks/03.c)
+- [Задача 4](https://github.com/allseenn/c/blob/master/08.Tasks/04.c)
+- [Задача 5](https://github.com/allseenn/c/blob/master/08.Tasks/05.c)
+- [Задача 6](https://github.com/allseenn/c/blob/master/08.Tasks/06.c)
+- [Задача 7](https://github.com/allseenn/c/blob/master/08.Tasks/07.c)
