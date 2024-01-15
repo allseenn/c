@@ -1,34 +1,54 @@
 #include<stdio.h>
+#define X 5
+#define Y 5
 
-void change_max_min(int size, int a[])
+int mean_arr(int x, int y, int a[y][x])
 {
-    int min_idx, max_idx, tmp = 0;
-    for (int i = 1; i < size; i++)
+    int j, sum = 0;
+    for (int i = 0; i < y; i++)
     {
-        if(a[i] > a[max_idx])
-            max_idx = i;
-        else if(a[i] < a[min_idx])
-            min_idx = i;
+        sum += a[i][j];
+        j++;
     }
-    tmp = a[max_idx];
-    a[max_idx] = a[min_idx];
-    a[min_idx] = tmp;
+    return sum / j;
 }
 
-void print_arr(int size, int a[])
+int positive_cnt(int x, int y, int a[y][x])
 {
-    for (int i = 0; i < size; i++)
+    int count = 0;
+    int mean = mean_arr(X, Y, a);
+    for (int i = 0; i < y; i++)
     {
-        printf("%d ", a[i]);
+        for (int j = 0; j < x; j++)
+        {
+            if(a[i][j] > mean)
+                count++;
+        }
+    }
+    return count;
+}
+
+void print_arr(int x, int y, int a[y][x])
+{
+    for (int i = 0; i < y; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+    printf("\n");
     }
     printf("\n");
 }
 
 int main()
 {
-    int arr[5] = {}
+    int arr[Y][X] =    {{1, 1, 1, 1, 1},
+                        {2, 2, 2, 2, 2},
+                        {3, 3, 3, 3, 3},
+                        {4, 4, 4, 4, 4},
+                        {5, 5, 5, 5, 5}};
 
-
-    print_arr(sizeof(arr)/sizeof(int), arr);
+    printf("%d\n", positive_cnt(X, Y, arr));
     return 0;
 }
