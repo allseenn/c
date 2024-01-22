@@ -1,30 +1,50 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
+
 #define SIZE 100
+
+int compare(const void *a, const void *b)
+{
+    return (*(int*)a - *(int*)b);
+}
 
 int main(int argc, char const *argv[])
 {
     FILE *f;
     char str[SIZE];
+    int arr[SIZE];
+    int arr_cnt = 0;
+    char dig[sizeof(int)];
+    int dig_cnt = 0;
     f = fopen("03.in", "r");
     fscanf(f, "%[^\n]", str); 
     fclose(f);
     f = fopen("03.out", "w");
     for (int i = 0; i < strlen(str); i++)
     {
-        if(str[i] == 'a') str[i] = 1;
-        else if(str[i] == 'A') str[i] = 2;
-        else if(str[i] == 'b') str[i] = 3;
-        else if(str[i] == 'B') str[i] = 4;
+        if(str[i] >= '0' && str[i] <= '9')
+        {
+            dig[dig_cnt] = str[i];
+            dig_cnt++;
+        }
+        else if(str[i] > '9' && dig_cnt > 0)
+        {   
+            dig[dig_cnt] = '\0';
+            dig_cnt=0;
+            arr[arr_cnt] = atoi(dig);
+            arr_cnt++;
+        }
+
     }
-    for (int i = 0; i < strlen(str); i++)
+
+    qsort(arr, arr_cnt, sizeof(int), compare);
+
+    for (int i = 0; i < arr_cnt; i++)
     {
-        if(str[i] == 1) str[i] = 'b';
-        else if(str[i] == 2) str[i] = 'B';
-        else if(str[i] == 3) str[i] = 'a';
-        else if(str[i] == 4) str[i] = 'A';
+        fprintf (f, "%d ", arr[i]);
     }
-    fprintf(f, "%s", str);
+    
     fclose(f);
     return 0;
 }
