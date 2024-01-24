@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
     len = strlen(str);
     fscanf(f, "%s", str + len);
     fclose(f);
-    f = fopen("00.out", "w");
+    f = fopen("00.txt", "w");
     fprintf(f, "%s %s!", str, surname);
     fclose(f);
     return 0;

@@ -12,7 +12,7 @@ int main()
         if(word[strlen(word)-1] == 'a')
             count++; 
     fclose(f);
-    f = fopen("06.out", "w");
+    f = fopen("06.txt", "w");
     fprintf(f, "%d", count);
     fclose(f);
     return 0;

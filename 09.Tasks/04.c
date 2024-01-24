@@ -2,7 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 
-#define SIZE 100
+#define SIZE 1000
 
 int compare(const void *a, const void *b)
 {
@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
     fclose(f);
     qsort(str, strlen(str), sizeof(char), compare);
     // printf("%s", str);
-    f = fopen("04.out", "w");
+    f = fopen("04.txt", "w");
     if(str[0] != ' ') fputc(str[0], f);
     for (int i = 1; i < strlen(str); i++)
     {

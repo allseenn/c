@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
     fscanf(f, "%s", word1); 
     fscanf(f, "%s", word2);
     fclose(f);
-    f = fopen("01.out", "w");
+    f = fopen("01.txt", "w");
     for (int i = 0; i < strlen(word1); i++)
     {
         count = 0;

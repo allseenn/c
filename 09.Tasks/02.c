@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-#define SIZE 100
+#define SIZE 1000
 
 int main(int argc, char const *argv[])
 {
@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     f = fopen("02.in", "r");
     fscanf(f, "%[^\n]", str); 
     fclose(f);
-    f = fopen("02.out", "w");
+    f = fopen("02.txt", "w");
     for (int i = 0; i < strlen(str); i++)
     {
         if(str[i] == 'a') str[i] = 1;

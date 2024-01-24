@@ -2,7 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 
-#define SIZE 100
+#define SIZE 1000
 
 int compare(const void *a, const void *b)
 {
@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
     f = fopen("03.in", "r");
     fscanf(f, "%[^\n]", str); 
     fclose(f);
-    f = fopen("03.out", "w");
+    f = fopen("03.txt", "w");
     for (int i = 0; i < strlen(str); i++)
     {
         if(str[i] >= '0' && str[i] <= '9')

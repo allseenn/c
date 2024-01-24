@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
             copy_str(str, max_word);
         
     fclose(f);
-    f = fopen("05.out", "w");
+    f = fopen("05.txt", "w");
     fprintf(f, "%s", max_word);
     fclose(f);
     return 0;
