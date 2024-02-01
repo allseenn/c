@@ -2,7 +2,6 @@
 
 int url(queue *pl)
 {
-    // Сохраняем начальное значение указателя
     queue *start = pl;
 
     int slashes = 0;
@@ -13,7 +12,6 @@ int url(queue *pl)
         pl = pl->next;
     }
 
-    // Возвращаем указатель к началу списка
     pl = start;
 
     int file = slashes;
@@ -34,7 +32,5 @@ int url(queue *pl)
 
         pl = pl->next;
     }
-
-    printf("%d %d %d\n", file, points, extension);
     return 0;
 }
